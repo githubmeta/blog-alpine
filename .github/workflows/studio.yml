@@ -45,15 +45,17 @@ jobs:
           echo "cache=$cache" >> $GITHUB_OUTPUT
           echo "package_manager=$package_manager" >> $GITHUB_OUTPUT
 
-      - name: Setup pnpm
-        uses: pnpm/action-setup@v4.0.0
-        with:
-          version: latest
+      # - name: Setup pnpm
+      #   uses: pnpm/action-setup@v4.0.0
+      #   with:
+      #     version: latest
 
       - uses: pnpm/action-setup@v4
         if: ${{ steps.pkgman.outputs.package_manager == 'pnpm' }}
         name: Install pnpm
         id: pnpm-install
+        with:
+          version: latest
 
       - uses: actions/setup-node@v4
         with:
