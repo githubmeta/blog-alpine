@@ -52,7 +52,7 @@ jobs:
 
       - uses: pnpm/action-setup@v4
         with:
-          version: 4
+          version: node-version
         if: ${{ steps.pkgman.outputs.package_manager == 'pnpm' }}
         name: Install pnpm
         id: pnpm-install
